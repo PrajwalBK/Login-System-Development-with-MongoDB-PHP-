@@ -1,1 +1,21 @@
 
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Triggers the workflow when changes are pushed to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: echo "Building the project..."
+
+      - name: Deploy
+        run: echo "Deploying the project..."
