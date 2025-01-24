@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>UPGRADE FROM 1.x to 1.15 | Login-System-Development-with-MongoDB-PHP-</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="UPGRADE FROM 1.x to 1.15" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Login System Development with MongoDB (PHP) involves creating a secure platform for user authentication and registration using PHP and MongoDB" />
+<meta property="og:description" content="Login System Development with MongoDB (PHP) involves creating a secure platform for user authentication and registration using PHP and MongoDB" />
+<meta property="og:site_name" content="Login-System-Development-with-MongoDB-PHP-" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="UPGRADE FROM 1.x to 1.15" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Login System Development with MongoDB (PHP) involves creating a secure platform for user authentication and registration using PHP and MongoDB","headline":"UPGRADE FROM 1.x to 1.15","url":"/vendor/mongodb/mongodb/UPGRADE-1.15.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=857e021cf5b24dcf8f181afaacb7ea3557e3f259">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="/">Login-System-Development-with-MongoDB-PHP-</a></h1>
+      
+
+      <h1 id="upgrade-from-1x-to-115">UPGRADE FROM 1.x to 1.15</h1>
+
+<h2 id="method-signature-changes">Method signature changes</h2>
+
+<h3 id="parameter-types">Parameter types</h3>
+
+<p>Starting with 1.15, methods now declare types for their arguments. This will not
+cause BC breaks unless you’ve passed a type that was incompatible with the type
+previously documented in the PHPDoc comment. A list of changes can be found at
+the bottom of this document.</p>
+
+<h3 id="return-types">Return types</h3>
+
+<p>Return types will be added in version 2.0. These types are documented in a
+PHPDoc comment and will eventually become a declared return type. You can
+prepare for this  change (which will trigger a BC break in any class you may
+extend) by adding the correct return type to your class at this time.</p>
+
+<h2 id="internal-classes">Internal classes</h2>
+
+<p>Internal classes (i.e. annotated with <code class="language-plaintext highlighter-rouge">@internal</code>) will become final where
+possible in a future release. At the same time, we will add return types to
+these internal classes. Note that internal classes are not covered by our
+backward compatibility promise, and you should not instantiate such classes
+directly.</p>
+
+<h2 id="method-signature-changes-by-class">Method signature changes by class</h2>
+
+<h3 id="mongodbclient">MongoDB\Client</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">1.13</th>
+      <th style="text-align: left">1.15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__construct($uri = 'mongodb://127.0.0.1', array $uriOptions = [], array $driverOptions = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__construct(?string $uri = null, array $uriOptions = [], array $driverOptions = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__get($databaseName)</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__get(string $databaseName)</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">dropDatabase($databaseName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">dropDatabase(string $databaseName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">selectCollection($databaseName, $collectionName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">selectCollection(string $databaseName, string $collectionName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">selectDatabase($databaseName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">selectDatabase(string $databaseName, array $options = [])</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mongodbdatabase">MongoDB\Database</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">1.13</th>
+      <th style="text-align: left">1.15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, $databaseName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, string $databaseName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__get($collectionName)</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__get(string $collectionName)</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">createCollection($collectionName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">createCollection(string $collectionName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">dropCollection($collectionName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">dropCollection(string $collectionName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">modifyCollection($collectionName, array $collectionOptions, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">modifyCollection(string $collectionName, array $collectionOptions, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">selectCollection($collectionName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">selectCollection(string $collectionName, array $options = [])</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mongodbcollection">MongoDB\Collection</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">1.13</th>
+      <th style="text-align: left">1.15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, $databaseName, $collectionName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, string $databaseName, string $collectionName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">distinct($fieldName, $filter = [], array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">distinct(string $fieldName, $filter = [], array $options = [])</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mongodbgridfsbucket">MongoDB\GridFS\Bucket</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">1.13</th>
+      <th style="text-align: left">1.15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, $databaseName, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">__construct(MongoDB\Driver\Manager $manager, string $databaseName, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">downloadToStreamByName($filename, $destination, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">downloadToStreamByName(string $filename, $destination, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">openDownloadStreamByName($filename, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">openDownloadStreamByName(string $filename, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">openUploadStream($filename, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">openUploadStream(string $filename, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">uploadFromStream($filename, $source, array $options = [])</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">uploadFromStream(string $filename, $source, array $options = [])</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">rename($id, $newFilename)</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">rename($id, string $newFilename)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
