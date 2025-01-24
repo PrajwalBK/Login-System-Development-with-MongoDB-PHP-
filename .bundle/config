@@ -1,3 +1,4 @@
 ---
 BUNDLE_PATH: "/home/runner/work/Login-System-Development-with-MongoDB-PHP-/Login-System-Development-with-MongoDB-PHP-/vendor/bundle"
 BUNDLE_JOBS: "4"
+BUNDLE_DEPLOYMENT: "true"
