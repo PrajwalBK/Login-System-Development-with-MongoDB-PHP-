@@ -12,9 +12,5 @@ Please download and install the required files for your OS below
 
 * Text Editor (Optional) : https://www.sublimetext.com/
 
-
-My Youtube Channel : https://www.youtube.com/channel/UCOFZv6kbjRHob7SLyIojPlA
-
-
 NOTE
 Vendor Driver is being used for Xampp version 8.1.10, if you are on 8.2 then download the driver for 8.2
